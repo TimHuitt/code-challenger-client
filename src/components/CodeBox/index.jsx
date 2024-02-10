@@ -18,7 +18,7 @@ const CodeBox = ({ logData, setLogData }) => {
 
   const sendRequest = async () => {
 
-    const url = "http://localhost:4000/console";
+    const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/console";
 
     const textareaElement = textRef.current;
     const lines = textareaElement.props.value.split('\n');

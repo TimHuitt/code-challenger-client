@@ -9,7 +9,7 @@ const Buttons = () => {
   
   
   const sendRequest = async () => {
-    const url = "http://localhost:4000/challenges";
+    const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/challenges";
     try {
       const res = await fetch(url, {
         method: 'POST',
