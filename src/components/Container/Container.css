@@ -1,0 +1,50 @@
+.Container {
+  height: 28%;
+  width: 95%;
+  padding: 5px 5% 40px 5%;
+  color: rgb(158, 161, 170);
+  font-size: 1.25rem;
+  box-shadow: inset 0 0 5px black;
+  border-radius: 10px;
+  background-color: var(--container);
+  overflow: auto;
+  white-space: pre-wrap;
+}
+.Container h1 {
+  text-align: center;
+  padding: 10px 0;
+}
+.text-container {
+  margin-bottom: 3%;
+  background: var(--darkest);
+  padding: 10px;
+  border: 2px solid var(--bg);
+  border-radius: 10px;
+}
+.hints {
+  height: 40%;
+}
+.hint-container {
+  width: 100%;
+  margin: 20px 0 20px 0;
+  text-align: center;
+  border: 2px solid var(--darkest);
+  border-radius: 10px 10px 0 0;
+}
+.hint-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  background: var(--darkest);
+  border-radius: 8px 8px 0 0;
+  cursor: pointer;
+  user-select: none;
+}
+.hint-content {
+  display: block;
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}

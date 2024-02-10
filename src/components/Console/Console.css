@@ -1,0 +1,41 @@
+#Console {
+  position: relative;
+  width: 100%;
+  height: 20%;
+  background-color: var(--dark-bg);
+}
+#console-text {
+  height: 100%;
+  border-radius: 0 0 10px 10px;
+  padding: 10px 10px 45px 10px;
+  box-shadow: inset 0 0 5px var(--glow);
+  overflow: auto;
+}
+#console-label {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  color: var(--font-label);
+}
+#console-entry {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+}
+#console-entry input {
+  width: 100%;
+  height: 100%;
+  padding-left: 10px;
+  color: var(--lightest);
+  background: var(--darkest);
+  border: none;
+  box-shadow: inset 0 -1px 5px var(--glow);
+  border-radius: 0 0 10px 10px;
+  outline: none;
+}
+#console-text pre {
+  margin: 0;
+  font-size: .75rem;
+}

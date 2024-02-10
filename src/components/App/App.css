@@ -1,0 +1,32 @@
+:root {
+  --bg: #1d1f2b;
+  --dark-bg: #141618;
+  --darkest: rgb(15, 15, 15);
+  
+  --lightest: #c5d7eb;
+  --light: rgb(130, 141, 157);
+
+  --container: #1d2125;
+  --font-label: rgb(99, 104, 115);
+  --glow: #444d7c;
+  --red: rgb(113, 11, 11);
+  --blue: rgb(64, 64, 163);
+  --green: green;
+  --light-green: rgb(3, 188, 3);
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--lightest);
+  font-size: 16px;
+}
+h1 {
+  margin: 0;
+}
+p{
+  margin: 0;
+}

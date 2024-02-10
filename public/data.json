@@ -1,0 +1,19 @@
+{
+  "ID": "js_beg_short_vowel_statistics",
+  "challenge": "Write a JavaScript function that takes a string as input and returns an object containing the count of each vowel (a, e, i, o, u) in the given string. Ignore case sensitivity.",
+  "textHints": [
+    "You can use an object to store the count of each vowel.",
+    "Iterate through the string and update the count for each vowel in the object."
+  ],
+  "codeHints": [
+    "Consider using an object to keep track of the count for each vowel.",
+    "Use the `toLowerCase()` method to make the comparison case-insensitive."
+  ],
+  "testCases": [
+    "Input: 'Hello', Output: { 'a': 0, 'e': 1, 'i': 0, 'o': 1, 'u': 0 }",
+    "Input: 'Coding Challenge', Output: { 'a': 0, 'e': 3, 'i': 1, 'o': 2, 'u': 0 }",
+    "Input: 'aeiouAEIOU', Output: { 'a': 1, 'e': 1, 'i': 1, 'o': 1, 'u': 1 }",
+    "Input: '12345', Output: { 'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0 }"
+  ],
+  "solution": "function countVowelStatistics(str) {\n  const vowels = { 'a': 0, 'e': 0, 'i': 0, 'o': 0, 'u': 0 };\n  str.toLowerCase().split('').forEach(char => { if ('aeiou'.includes(char)) vowels[char]++; });\n  return vowels;\n}"
+}
