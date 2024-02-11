@@ -8,13 +8,12 @@
   width: 100%;
 }
 #Buttons button {
-  height: 50px;
-  min-width: 100px;
-  padding: 0 20px;
+  width: 60px;
+  height: 60px;
   color: var(--lightest);
   font-size: 1.25rem;
   border: 2px solid var(--darkest);
-  border-radius: 10px;
+  border-radius: 50%;
   background-color: var(--dark-bg);
   cursor: pointer;
 }
@@ -30,14 +29,16 @@
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 6%;
-  width: 92%;
+  width: 50%;
 }
 #buttons-challenges {
   display: flex;
   justify-content: center;
   height: 50px;
-  padding: 0 10% 0 4%;
-  grid-column: 1;
+  width: 50px;
+}
+#buttons-challenges img {
+  height: 50px;
 }
 #buttons-code {
   display: flex;

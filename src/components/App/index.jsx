@@ -23,7 +23,6 @@ function App() {
           <Collapse />
           <Code />
         </div>
-        <Buttons />
       </div>
     </>
     </StateProvider>
