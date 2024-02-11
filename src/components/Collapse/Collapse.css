@@ -20,7 +20,6 @@
   height: 50px;
   width: 50px;
   padding: 5px;
-  transform: rotate(180deg);
 }
 .collapse-container:hover {
   background: var(--container);
