@@ -8,7 +8,6 @@ const Container = ({ header, body }) => {
   let textHints
   let codeHints
   let solution
-  let testCases
   let firstRun = true
 
   if (header === 'Hints') {
@@ -16,8 +15,6 @@ const Container = ({ header, body }) => {
     codeHints = body[1]
     solution = body[2]
   }
-
-  console.log(testCases)
 
   const formatBody = (data) => {
     if (typeof data === 'string') {

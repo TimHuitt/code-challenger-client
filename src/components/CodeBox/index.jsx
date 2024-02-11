@@ -10,9 +10,8 @@ import playSvg from '/public/play.svg'
 import checkSvg from '/public/check.svg'
 import wrongSvg from '/public/wrong.svg'
 
-const CodeBox = ({ logData, setLogData }) => {
-  const { challengeResponse } = useStateContext();
-  const { requestData } = useStateContext();
+const CodeBox = () => {
+  const { challengeResponse, requestData, logData, setLogData, passing, setPassing } = useStateContext();
   const textRef = useRef(null)
 
   const [code, setCode] = React.useState(
@@ -51,18 +50,26 @@ const CodeBox = ({ logData, setLogData }) => {
     }
   };
 
+  const isPassing = (codeEval) => {
+    return codeEval === 'true'
+  }
+
   const handleRun = async () => {
 
     try {
       const resData = await sendRequest();
       if (resData) {
         if (typeof resData.response === 'string') {
-          
-          console.log(logData)
-          console.log(logData.concat(JSON.parse(resData.response).output))
-
+          JSON.parse(resData.response).eval 
+            ? setLogData(logData.concat('Correct!'))
+            : setLogData(logData.concat('Incorrect!'))
+          setPassing(isPassing(JSON.parse(resData.response).eval))
           setLogData(logData.concat(JSON.parse(resData.response).output))
         } else {
+          resData.response.eval
+            ? setLogData(logData.concat('Correct!'))
+            : setLogData(logData.concat('Incorrect!'))
+          setPassing(isPassing(resData.response.eval))
           setLogData(logData.concat(resData.response.output))
         }
       } else {
@@ -72,7 +79,6 @@ const CodeBox = ({ logData, setLogData }) => {
       console.log(err);
     }
   };
-
 
   return (
     <div id="CodeBox">
@@ -100,12 +106,15 @@ const CodeBox = ({ logData, setLogData }) => {
       <div id="eval-container">
         {/* <img src={wrongSvg} alt="Incorrect Solution" /> */}
         <div className="eval-wrapper">
-          <div className="correct" data-tooltip-id="correct" data-tooltip-content="Challenge Complete!">
-            {/* <img src={checkSvg} alt="Incorrect Solution" /> */}
-          </div>
-          <div className="wrong" data-tooltip-id="wrong" data-tooltip-content="Challenge Incomplete">
-            <img src={wrongSvg} alt="Incorrect Solution" />
-          </div>
+          { passing ? (
+            <div className="correct" data-tooltip-id="correct" data-tooltip-content="Challenge Complete!">
+              <img src={checkSvg} alt="Challenge Complete!" />
+            </div>
+          ) : (
+            <div className="wrong" data-tooltip-id="wrong" data-tooltip-content="Challenge Incomplete">
+              <img src={wrongSvg} alt="Incorrect Solution" />
+            </div>
+          )}
         </div>
       </div>
       <div className="code-bg"></div>

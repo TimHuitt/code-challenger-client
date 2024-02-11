@@ -1,8 +1,12 @@
 import React, { createContext, useContext, useState } from 'react';
-
+import cogSvg from '../public/cog.svg'
   const StateContext = createContext();
 
   export const StateProvider = ({ children }) => {
+
+    const [ passing, setPassing ] = useState (true)
+
+    const [ logData, setLogData ] = useState([''])
 
     const [ challengeToggle, setChallengeToggle ] = useState(true)
 
@@ -19,6 +23,7 @@ import React, { createContext, useContext, useState } from 'react';
     const [ challengeResponse, setChallengeResponse ] = useState({
       ID: 'py_beg_short_find_max_number',
       name: 'Challenge',
+      // challenge: '',
       challenge: `Click the cog to adjust challenge settings\n
 Click "New Challenge"\n
 Add your code to the code editor\n
@@ -34,6 +39,10 @@ Click run to execute your code
     })
 
     const value = {
+      passing,
+      setPassing,
+      logData,
+      setLogData,
       challengeToggle,
       setChallengeToggle,
       requestData,

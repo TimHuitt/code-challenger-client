@@ -31,7 +31,7 @@
   border: 2px solid var(--light-green);
   border-radius: 50%;
   background-color: var(--green);
-  opacity: .7;
+  opacity: .5;
   cursor: pointer;
 }
 #run-button img {
@@ -67,6 +67,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+}
+.correct {
+  background-color: var(--light-green);
+}
+.wrong {
+  background-color: var(--light-red);
 }
 .code-bg {
   position: absolute;
@@ -78,8 +85,7 @@
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: .02;
-  filter: brightness(50%);
+  opacity: .04;
   pointer-events: none;
 }
 .code-bg::after {

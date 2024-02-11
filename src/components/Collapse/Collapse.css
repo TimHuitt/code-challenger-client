@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-between;
   grid-column: 2;
+  z-index: 10;
 }
 .collapse-container {
   display: flex;

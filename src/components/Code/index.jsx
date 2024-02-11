@@ -7,12 +7,11 @@ import './Code.css'
 
 const Code = () => {
   const { requestData } = useStateContext();
-  const [ logData, setLogData ] = useState([''])
 
   return (
     <div id="Code">
-      <CodeBox setLogData={setLogData} logData={logData} />
-      <Console logData={logData} />
+      <CodeBox />
+      <Console />
       <div className="stats">
         language: {requestData.language}<br />
         difficulty: {requestData.difficulty}<br />

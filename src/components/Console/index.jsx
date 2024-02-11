@@ -1,8 +1,8 @@
-import { useState } from 'react'
+import { useStateContext } from '../../StateContext'
 import './Console.css'
 
-const Console = ({ logData }) => {
-  const [ log, setLog ] = useState('')
+const Console = () => {
+  const { logData } = useStateContext();
 
   return (
     <div id="Console">
