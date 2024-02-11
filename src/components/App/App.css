@@ -37,3 +37,10 @@ h1 {
 p{
   margin: 0;
 }
+.content {
+  display: grid;
+  grid-template-columns: 30% 5% 62%;
+  grid-template-rows: 85vh;
+  justify-content: center;
+  margin-top: 80px;
+}
