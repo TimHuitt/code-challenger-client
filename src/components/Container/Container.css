@@ -2,14 +2,20 @@
   position: relative;
   height: 28%;
   width: 95%;
-  padding: 60px 0 20px 0;
+  padding-top: 35px;
   color: rgb(158, 161, 170);
   font-size: 1.25rem;
+  line-height: 25px;
   box-shadow: inset 0 0 5px var(--darkest);
   border-radius: 10px;
-  background: #242530;
+  background: var(--container);
   overflow: hidden;
   white-space: pre-wrap;
+}
+.Container hr {
+  width: 70%;
+  margin-top: 10px;
+  border: 1px solid var(--console);
 }
 .Container h1 {
   font-size: 1.5rem;
@@ -21,23 +27,23 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 45px;
+  height: 35px;
   background: var(--console);
   overflow: hidden;
 }
 .content-container {
   position: absolute;
   width: 100%;
-  height: 75%;
-  padding: 0 3%;
+  height: 82%;
+  padding-top: 20px;
   border-radius: 10px;
   overflow: auto;
 }
 .text-container {
   margin-bottom: 3%;
-  background: var(--darkest);
-  padding: 10px;
-  border: 2px solid var(--dark-bg);
+  /* background: var(--darkest); */
+  padding: 0 20px;
+  /* border: 2px solid var(--dark-bg); */
   border-radius: 10px;
 }
 .hints {
@@ -56,7 +62,7 @@
   justify-content: center;
   align-items: center;
   height: 40px;
-  background: var(--darkest);
+  background: var(--console);
   border-radius: 8px 8px 0 0;
   cursor: pointer;
   user-select: none;

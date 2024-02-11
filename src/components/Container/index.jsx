@@ -76,6 +76,7 @@ const Container = ({ header, body }) => {
                 return (
                   <div className="text-container">
                     <p>{"input: " + line[0] + "\n  > " + line[1] + "\n"}</p>
+                    <hr />
                   </div>
                 )
               })

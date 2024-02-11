@@ -10,10 +10,13 @@
   width: 30%;
   height: 85%;
 }
+#Challenges h1 {
+  padding: 5px;
+}
 .settings-button {
   position: absolute;
-  top: 8px;
-  right: 5%;
+  top: 4px;
+  right: 18px;
   padding: 3px 5px 0 5px;
   color: rgb(188, 208, 228);
   font-weight: 800;

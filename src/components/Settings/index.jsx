@@ -67,7 +67,7 @@ const Settings = () => {
   
         <div className="settings-request">
           <label htmlFor="request">Request</label>
-          <textarea id="request" name="request" rows="4" cols="50" placeholder="Optional details regarding the created challenge"></textarea>
+          <textarea id="request" name="request" rows="4" cols="50" placeholder='ie: something with a matrix'></textarea>
         </div>
   
         <div className="settings-buttons">
