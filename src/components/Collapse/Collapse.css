@@ -1,0 +1,14 @@
+.Collapse {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  height: 50px;
+  width: 50px;
+}
+.collapse-container {
+  background: red;
+}
+.collapse-container img {
+  height: 50px;
+  width: 50px;
+}
