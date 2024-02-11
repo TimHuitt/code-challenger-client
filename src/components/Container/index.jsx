@@ -67,20 +67,24 @@ const Container = ({ header, body }) => {
       {ContainerID === 'Container'
       ? (
         <>
-          <h1>{header}</h1>
-          { Array.isArray(body) ? (
-            body.map((line) => {
-              return (
-                <div className="text-container">
-                  <p>{"input: " + line[0] + "\n  > " + line[1] + "\n"}</p>
-                </div>
-              )
-            })
-          ) : (
-            <div className="text-container">
-              <p>{bodyContent}</p>
-            </div>
-          )}
+          <div className="container-header">
+            <h1>{header}</h1>
+          </div>
+          <div className="content-container">
+            { Array.isArray(body) ? (
+              body.map((line) => {
+                return (
+                  <div className="text-container">
+                    <p>{"input: " + line[0] + "\n  > " + line[1] + "\n"}</p>
+                  </div>
+                )
+              })
+            ) : (
+              <div className="text-container">
+                <p>{bodyContent}</p>
+              </div>
+            )}
+          </div>
         </>
       ) : (
         <>
