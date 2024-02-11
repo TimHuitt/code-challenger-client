@@ -1,14 +1,49 @@
-.Collapse {
+#Collapse {
   position: absolute;
-  top: 50%;
-  left: 30%;
-  height: 50px;
-  width: 50px;
+  top: 50%; 
+  transform: translateY(-50%);
+  left: 32%;
+  display: flex;
+  flex-direction: column;
 }
 .collapse-container {
-  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  margin: 50% 0;
+  border-radius: 50%;
+  cursor: pointer;
 }
 .collapse-container img {
   height: 50px;
   width: 50px;
+  padding: 5px;
+  transform: rotate(180deg);
+}
+.collapse-container:hover {
+  background: var(--container);
+  border: 3px solid var(--darkest);
+}
+.collapse-container:active {
+  background: var(--glow);
+}
+.vertical-ruler {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  width: 100%;
+}
+.vertical-ruler::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100%;
+  width: 5%;
+  background: var(--dark-bg);
 }

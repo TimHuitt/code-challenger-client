@@ -10,9 +10,11 @@ const Collapse = () => {
 
   return (
     <div id="Collapse">
+      <div className="vertical-ruler" />
       <div className="collapse-container">
         <img src={collapseSvg} alt="collapse" />
       </div>
+      <div className="vertical-ruler" />
     </div>
   )
 }
