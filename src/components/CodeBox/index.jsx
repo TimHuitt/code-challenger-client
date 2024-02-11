@@ -50,10 +50,6 @@ const CodeBox = () => {
     }
   };
 
-  const isPassing = (codeEval) => {
-    return codeEval
-  }
-
   const handleRun = async () => {
 
     try {

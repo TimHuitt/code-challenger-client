@@ -7,7 +7,7 @@ import nextSvg from '/next.svg'
 import collapseSvg from '/collapse.svg'
 
 const Collapse = () => {
-
+  const [ disabled, setDisabled ] = useState(false)
   const { challengeToggle, setChallengeToggle, setPassing, logData, setLogData } = useStateContext()
   const [ rotation, setRotation ] = useState(180)
 
@@ -87,6 +87,7 @@ const Collapse = () => {
           <img src={nextSvg} />
         </button>
       </div>
+      
       <Tooltip id="settings" />
       <Tooltip id="collapse" />
       <Tooltip id="next" />
