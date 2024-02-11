@@ -23,7 +23,7 @@
   box-sizing: border-box;
 }
 body {
-  margin: 0;
+  margin: 0 20px;
   background: var(--bg);
   color: var(--lightest);
   font-size: 16px;
@@ -41,6 +41,6 @@ p{
   display: grid;
   grid-template-columns: 30% 5% 62%;
   grid-template-rows: 90vh;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 80px;
 }
