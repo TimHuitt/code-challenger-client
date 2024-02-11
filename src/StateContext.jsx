@@ -4,6 +4,8 @@ import React, { createContext, useContext, useState } from 'react';
 
   export const StateProvider = ({ children }) => {
 
+    const [ challengeToggle, setChallengeToggle ] = useState(true)
+
     const [ requestData, setRequestData ] = useState({
       'ID': [],
       'language': 'Python',
@@ -33,6 +35,8 @@ Click run to execute your code
     })
 
     const value = {
+      challengeToggle,
+      setChallengeToggle,
       requestData,
       setRequestData,
       showSettings,

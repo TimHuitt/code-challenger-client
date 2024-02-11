@@ -5,6 +5,10 @@ import Prism from 'prismjs'
 import Editor from 'react-simple-code-editor';
 import { useStateContext } from '../../StateContext';
 
+import playSvg from '/public/play.svg'
+import checkSvg from '/public/check.svg'
+import wrongSvg from '/public/wrong.svg'
+
 const CodeBox = ({ logData, setLogData }) => {
   const { challengeResponse } = useStateContext();
   const { requestData } = useStateContext();
@@ -88,11 +92,15 @@ const CodeBox = ({ logData, setLogData }) => {
         />
       </div>
       <div id="run-button-container">
-        <span id="run-button" onClick={handleRun}>Run!</span>
+        <div id="run-button" onClick={handleRun}>
+          <img src={playSvg} />
+        </div>
       </div>
       <div id="eval-container">
-        <img src="/cog.svg" />
+        {/* <img src={wrongSvg} alt="Incorrect Solution" /> */}
+        <img src={checkSvg} alt="Incorrect Solution" />
       </div>
+      <div className="code-bg"></div>
     </div>
   )
 }

@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300&display=swap');
+
 :root {
-  --bg: #1d1f2b;
+  --bg: #313441;
   --dark-bg: #141618;
-  --darkest: rgb(15, 15, 15);
+  --darkest: rgb(17, 19, 22);
   
   --lightest: #c5d7eb;
   --light: rgb(130, 141, 157);
 
-  --container: #1d2125;
+  --container: #1a1f26;
   --font-label: rgb(99, 104, 115);
   --glow: #444d7c;
   --red: rgb(113, 11, 11);
