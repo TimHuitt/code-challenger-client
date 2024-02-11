@@ -98,7 +98,10 @@ const CodeBox = ({ logData, setLogData }) => {
       </div>
       <div id="eval-container">
         {/* <img src={wrongSvg} alt="Incorrect Solution" /> */}
-        <img src={checkSvg} alt="Incorrect Solution" />
+        <div className="eval-wrapper">
+          {/* <img src={checkSvg} alt="Incorrect Solution" /> */}
+          <img src={wrongSvg} alt="Incorrect Solution" />
+        </div>
       </div>
       <div className="code-bg"></div>
     </div>

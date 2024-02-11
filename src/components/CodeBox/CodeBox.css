@@ -48,7 +48,17 @@
   bottom: 2%;
   right: 2%;
 }
-#eval-container img {
+.eval-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: var(--light-red);
+  opacity: .7;
+}
+.eval-wrapper img {
   height: 50px;
   width: 50px;
 }
