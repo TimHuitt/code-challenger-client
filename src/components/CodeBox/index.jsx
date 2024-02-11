@@ -4,6 +4,7 @@ import React, { useRef } from 'react'
 import Prism from 'prismjs'
 import Editor from 'react-simple-code-editor';
 import { useStateContext } from '../../StateContext';
+import { Tooltip } from 'react-tooltip'
 
 import playSvg from '/public/play.svg'
 import checkSvg from '/public/check.svg'
@@ -17,7 +18,7 @@ const CodeBox = ({ logData, setLogData }) => {
   const [code, setCode] = React.useState(
     `console.log('Welcome!')
   console.log('write some code here')
-    console.log('write some MORE code here')`
+    console.log('write some more code here')`
   );
 
   const sendRequest = async () => {
@@ -92,18 +93,25 @@ const CodeBox = ({ logData, setLogData }) => {
         />
       </div>
       <div id="run-button-container">
-        <div id="run-button" onClick={handleRun}>
+        <div id="run-button" onClick={handleRun}  data-tooltip-id="eval" data-tooltip-content="Run and Evaluate">
           <img src={playSvg} />
         </div>
       </div>
       <div id="eval-container">
         {/* <img src={wrongSvg} alt="Incorrect Solution" /> */}
         <div className="eval-wrapper">
-          {/* <img src={checkSvg} alt="Incorrect Solution" /> */}
-          <img src={wrongSvg} alt="Incorrect Solution" />
+          <div className="correct" data-tooltip-id="correct" data-tooltip-content="Challenge Complete!">
+            {/* <img src={checkSvg} alt="Incorrect Solution" /> */}
+          </div>
+          <div className="wrong" data-tooltip-id="wrong" data-tooltip-content="Challenge Incomplete">
+            <img src={wrongSvg} alt="Incorrect Solution" />
+          </div>
         </div>
       </div>
       <div className="code-bg"></div>
+      <Tooltip id="eval"  />
+      <Tooltip id="correct"  />
+      <Tooltip id="wrong"  />
     </div>
   )
 }

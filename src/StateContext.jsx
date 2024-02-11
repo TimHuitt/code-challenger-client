@@ -26,10 +26,10 @@ Click run to execute your code
       `,
       textHints: ['View general hints related to the generated challenge'],
       codeHints: ['View code specific hints related to the generated challenge'],
-      testCases: [["five","(Program should ask for input again)"], ["3.14", "(Program should ask for input again)"], ["10", "10"]],
-      // testCases: [
-      //   "Test cases and examples of expected input/output"
-      // ],
+      // testCases: [["five","(Program should ask for input again)"], ["3.14", "(Program should ask for input again)"], ["10", "10"]],
+      testCases: [
+        ["abc", "xyz"]
+      ],
       solution: "View the suggested solution if you get stuck"
     })
 

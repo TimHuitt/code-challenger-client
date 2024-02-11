@@ -16,6 +16,7 @@
     "react-router": "^6.21.1",
     "react-router-dom": "^6.21.1",
     "react-simple-code-editor": "^0.13.1",
+    "react-tooltip": "^5.26.1",
     "vite": "^5.0.8"
   },
   "devDependencies": {

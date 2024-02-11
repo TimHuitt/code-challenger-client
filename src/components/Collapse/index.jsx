@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useStateContext } from '../../StateContext'
+import { Tooltip } from 'react-tooltip'
 import './Collapse.css'
 
 import nextSvg from '../../../public/next.svg'
@@ -72,19 +73,22 @@ const Collapse = () => {
 
   return (
     <div id="Collapse">
-      <div className="settings-button" onClick={openSettings}>
+      <div className="settings-button" onClick={openSettings} data-tooltip-id="settings" data-tooltip-content="Update Settings">
         <img src="/cog.svg" />
       </div>
       <div className="vertical-ruler" />
       <div className="collapse-container">
-        <img src={collapseSvg} alt="collapse" style={{ transform: `rotate(${rotation}deg)` }} onClick={handleClick} />
+        <img src={collapseSvg} alt="collapse" style={{ transform: `rotate(${rotation}deg)` }} onClick={handleClick} data-tooltip-id="collapse" data-tooltip-content="Hide Details" />
       </div>
       <div className="vertical-ruler" />
       <div className="next-container">
-        <button onClick={getChallenge}>
+        <button onClick={getChallenge} data-tooltip-id="next" data-tooltip-content="Next Challenge">
           <img src={nextSvg} />
         </button>
       </div>
+      <Tooltip id="settings" />
+      <Tooltip id="collapse" />
+      <Tooltip id="next" />
     </div>
   )
 }
