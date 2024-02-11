@@ -18,9 +18,11 @@ function App() {
       <div>
         <Header />
         <Settings />
-        <Challenges />
-        <Collapse />
-        <Code />
+        <div className="content">
+          <Challenges />
+          <Collapse />
+          <Code />
+        </div>
         <Buttons />
       </div>
     </>
