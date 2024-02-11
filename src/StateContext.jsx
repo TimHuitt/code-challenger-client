@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
-import cogSvg from '../public/cog.svg'
-  const StateContext = createContext();
+
+const StateContext = createContext();
 
   export const StateProvider = ({ children }) => {
 
@@ -14,7 +14,7 @@ import cogSvg from '../public/cog.svg'
       'ID': [],
       'language': 'Python',
       'difficulty': 'beginner',
-      'length': 'short',
+      'length': 'one-liner',
       'request': ''
     })
 

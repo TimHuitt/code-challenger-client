@@ -1,8 +1,13 @@
+import { useEffect } from 'react'
 import { useStateContext } from '../../StateContext'
 import './Console.css'
 
 const Console = () => {
   const { logData } = useStateContext();
+
+  useEffect(() => {
+    
+  },[logData])
 
   return (
     <div id="Console">
@@ -16,9 +21,9 @@ const Console = () => {
           <input type='text' />
         </div>
       </div>
-      <div id="console-label">
+      {/* <div id="console-label">
         <span>Console</span>
-      </div>
+      </div> */}
     </div>
   )
 }

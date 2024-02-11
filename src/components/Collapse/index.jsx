@@ -3,12 +3,12 @@ import { useStateContext } from '../../StateContext'
 import { Tooltip } from 'react-tooltip'
 import './Collapse.css'
 
-import nextSvg from '../../../public/next.svg'
-import collapseSvg from '/public/collapse.svg'
+import nextSvg from '/next.svg'
+import collapseSvg from '/collapse.svg'
 
 const Collapse = () => {
 
-  const { challengeToggle, setChallengeToggle } = useStateContext()
+  const { challengeToggle, setChallengeToggle, setPassing, logData, setLogData } = useStateContext()
   const [ rotation, setRotation ] = useState(180)
 
   const { requestData } = useStateContext();
@@ -48,6 +48,7 @@ const Collapse = () => {
       const resData = await sendRequest();
   
       if (resData) {
+        setPassing(false)
         if (typeof resData.response === 'string') {
           setChallengeResponse(JSON.parse(resData.response))
         } else {
@@ -78,7 +79,7 @@ const Collapse = () => {
       </div>
       <div className="vertical-ruler" />
       <div className="collapse-container">
-        <img src={collapseSvg} alt="collapse" style={{ transform: `rotate(${rotation}deg)` }} onClick={handleClick} data-tooltip-id="collapse" data-tooltip-content="Hide Details" />
+        <img src={collapseSvg} alt="collapse" style={{ transform: `rotate(${rotation}deg)` }} onClick={handleClick} data-tooltip-id="collapse" data-tooltip-content="Toggle Details" />
       </div>
       <div className="vertical-ruler" />
       <div className="next-container">

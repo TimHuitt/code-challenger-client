@@ -6,9 +6,9 @@ import Editor from 'react-simple-code-editor';
 import { useStateContext } from '../../StateContext';
 import { Tooltip } from 'react-tooltip'
 
-import playSvg from '/public/play.svg'
-import checkSvg from '/public/check.svg'
-import wrongSvg from '/public/wrong.svg'
+import playSvg from '/play.svg'
+import checkSvg from '/check.svg'
+import wrongSvg from '/wrong.svg'
 
 const CodeBox = () => {
   const { challengeResponse, requestData, logData, setLogData, passing, setPassing } = useStateContext();
@@ -51,7 +51,7 @@ const CodeBox = () => {
   };
 
   const isPassing = (codeEval) => {
-    return codeEval === 'true'
+    return codeEval
   }
 
   const handleRun = async () => {
@@ -59,18 +59,22 @@ const CodeBox = () => {
     try {
       const resData = await sendRequest();
       if (resData) {
+        console.log(resData)
         if (typeof resData.response === 'string') {
-          JSON.parse(resData.response).eval 
-            ? setLogData(logData.concat('Correct!'))
-            : setLogData(logData.concat('Incorrect!'))
-          setPassing(isPassing(JSON.parse(resData.response).eval))
-          setLogData(logData.concat(JSON.parse(resData.response).output))
+          const codeState = JSON.parse(resData.response).eval
+            ? ['Correct!']
+            : ['Incorrect!']
+
+          setPassing(JSON.parse(resData.response).eval)
+          setLogData(logData.concat(codeState, JSON.parse(resData.response).output))
         } else {
-          resData.response.eval
-            ? setLogData(logData.concat('Correct!'))
-            : setLogData(logData.concat('Incorrect!'))
-          setPassing(isPassing(resData.response.eval))
-          setLogData(logData.concat(resData.response.output))
+
+          const codeState = resData.response.eval
+            ? ['Correct!']
+            : ['Incorrect!']
+
+          setPassing(resData.response.eval)
+          setLogData(logData.concat(codeState, resData.response.output))
         }
       } else {
         console.log('no data')

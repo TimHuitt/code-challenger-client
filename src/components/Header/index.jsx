@@ -1,5 +1,5 @@
 import './Header.css'
-import brainSvg from '../../../public/code-brain.svg'
+import brainSvg from '/code-brain.svg'
 
 const Header = () => {
   return (
