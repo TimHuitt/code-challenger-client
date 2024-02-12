@@ -81,6 +81,7 @@ const Collapse = () => {
           setChallengeResponse(resData.response)
         }
       } else {
+        setLogData(['There was a communication error.', 'Please try again...'])
         console.error('No data. Try again...')
       }
     } catch (err) {
