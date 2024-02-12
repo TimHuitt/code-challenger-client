@@ -38,6 +38,12 @@ const Collapse = () => {
   };
   
   const getChallenge = async () => {
+
+    if (disabled) {
+      console.error('Please wait for the current request to complete.');
+      return;
+    }
+
     setChallengeResponse({
       ID: '',
       name: 'Loading...',
@@ -63,7 +69,7 @@ const Collapse = () => {
     ])
 
     try {
-      const resData = await sendRequest();
+      const resData = disabled ? false : await sendRequest();
       
       if (resData) {
         setPassing(false)
@@ -73,13 +79,14 @@ const Collapse = () => {
           setChallengeResponse(resData.response)
         }
       } else {
-        console.log('no data')
+        console.error('No data. Try again...')
       }
     } catch (err) {
-      console.log(err);
+      console.log('Error: ' + err);
+    } finally {
+      setDisabled(false)
+      setLogData([''])
     }
-    setDisabled(false)
-    setLogData([''])
   };
 
   const handleClick = () => {
