@@ -23,7 +23,7 @@ console.log('Click the Play button to evaluate -->')`
   );
 
   useEffect(() => {
-    if (count) {
+    if (count && code.includes('Welcome!')) {
       setCode('')
     } 
     setCount(1)
