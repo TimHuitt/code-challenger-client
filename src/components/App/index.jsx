@@ -12,11 +12,29 @@ import "./App.css"
 function App() {
   const { challengeToggle } = useStateContext()
   const [ colWidth, setColWidth ] = useState('30% 5% 60%')
-  
+
+  const getWidth = (size) => {
+    const [width, setWidth] = useState(0)
+    
+    useEffect(() => {
+      function handleResize() {
+        setWidth(window.innerWidth)
+      }
+      window.addEventListener("resize", handleResize)
+      handleResize()
+      return () => { 
+        window.removeEventListener("resize", handleResize)
+      }
+    }, [setWidth])
+    return width
+  }
+
+  const wide = getWidth(600)
+
   useEffect(() => {
     challengeToggle
-      ? setColWidth('32% 5% 60%')
-      : setColWidth('0% 5% 93%')
+      ? wide > 600 ? setColWidth('32% 5% 60%') : setColWidth('93% 5% 0%')
+      : wide > 600 ? setColWidth('0 5% 93%') : setColWidth('0% 5% 93%')
   },[challengeToggle])
 
   return (
