@@ -1,6 +1,6 @@
 
 import { useStateContext } from '../../StateContext';
-import languages from '../../../public/languages.json'
+import languages from '/src/languages.json'
 import './Settings.css'
 
 
@@ -59,10 +59,10 @@ const Settings = () => {
         <div className="settings-length">
           <label htmlFor="length">Length of Your Solution</label>
           <select id="length" name="length">
-            <option value="one-liner">One-liner</option>
             <option value="short">Short</option>
             <option value="medium">Medium</option>
             <option value="long">Long</option>
+            <option value="one-liner">One-liner</option>
           </select>
         </div>
   

@@ -16,6 +16,8 @@ const Collapse = () => {
   }
   
   const sendRequest = async () => {
+    // https://code-challenger-server.fly.dev/
+    // https://code-challenger-server-9e5cc705b6e9.herokuapp.com/
     const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/challenges";
     try {
       const res = await fetch(url, {
@@ -40,7 +42,7 @@ const Collapse = () => {
   const getChallenge = async () => {
 
     if (disabled) {
-      console.error('Please wait for the current request to complete.');
+      console.error('Please wait for the current request.');
       return;
     }
 

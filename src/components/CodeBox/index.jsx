@@ -31,7 +31,8 @@ console.log('Click the Play button to evaluate -->')`
 
 
   const sendRequest = async () => {
-
+    // https://code-challenger-server.fly.dev/
+    // https://code-challenger-server-9e5cc705b6e9.herokuapp.com/
     const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/console";
 
     const textareaElement = textRef.current;
@@ -60,6 +61,16 @@ console.log('Click the Play button to evaluate -->')`
 
   const handleRun = async () => {
 
+    setDisabled(true)
+
+    if (disabled) {
+      console.error('Please wait for the current request.');
+      return;
+    }
+
+    setLogData(['Analyzing Code....'])
+
+
     try {
       const resData = await sendRequest();
       if (resData) {
@@ -79,6 +90,8 @@ console.log('Click the Play button to evaluate -->')`
       }
     } catch (err) {
       console.log(err);
+    } finally {
+      setDisabled(false)
     }
   };
 

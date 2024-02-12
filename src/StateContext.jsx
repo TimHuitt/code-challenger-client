@@ -12,9 +12,9 @@ const StateContext = createContext();
 
     const [ requestData, setRequestData ] = useState({
       'ID': [],
-      'language': 'python',
+      'language': 'Python',
       'difficulty': 'beginner',
-      'length': 'one-liner',
+      'length': 'short',
       'request': ''
     })
 
