@@ -3,11 +3,18 @@ import { useStateContext } from '../../StateContext'
 import './Console.css'
 
 const Console = () => {
-  const { logData } = useStateContext();
+  const { logData, setChallengeResponse, challengeToggle, setChallengeToggle, setShowSettings, requestData, setLogData, setPassing } = useStateContext()
 
   useEffect(() => {
     
   },[logData])
+
+  const handleKey = (e) => {
+    if (e.key === 'Enter') {
+      setLogData(prevData => [...prevData].concat(e.target.value) )
+      e.target.value = ''
+    }
+  }
 
   return (
     <div id="Console">
@@ -18,7 +25,7 @@ const Console = () => {
           )
         })}
         <div id="console-entry">
-          <input type='text' />
+          <input type='text' placeholder='' onKeyDown={handleKey} />
         </div>
       </div>
       {/* <div id="console-label">

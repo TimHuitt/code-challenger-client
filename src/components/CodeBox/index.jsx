@@ -19,7 +19,7 @@ const CodeBox = () => {
   const [code, setCode] = React.useState(
     `console.log('Welcome!')
 console.log('Generate a new challenge to get started')
-console.log('Click the Play button to evaluate -->')`
+console.log('Click the Play button to evaluate your code -->')`
   );
 
   useEffect(() => {
