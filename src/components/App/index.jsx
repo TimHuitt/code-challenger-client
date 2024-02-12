@@ -10,8 +10,8 @@ import Collapse from '../Collapse'
 import "./App.css"
 
 function App() {
-  const { challengeToggle } = useStateContext()
-  const [ colWidth, setColWidth ] = useState('30% 5% 60%')
+  const { challengeToggle, setChallengeToggle } = useStateContext()
+  const [ colWidth, setColWidth ] = useState('')
 
   const getWidth = (size) => {
     const [width, setWidth] = useState(0)
@@ -34,8 +34,13 @@ function App() {
   useEffect(() => {
     challengeToggle
       ? wide > 600 ? setColWidth('32% 5% 60%') : setColWidth('93% 5% 0%')
-      : wide > 600 ? setColWidth('0 5% 93%') : setColWidth('0% 5% 93%')
+      : setColWidth('0% 5% 93%')
   },[challengeToggle])
+
+  useEffect(() => {
+    setColWidth('32% 5% 60%')
+  },[])
+
 
   return (
     <div className='App'>
