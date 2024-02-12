@@ -1,6 +1,6 @@
 import './prism.css';
 import './CodeBox.css'
-import React, { useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Prism from 'prismjs'
 import Editor from 'react-simple-code-editor';
 import { useStateContext } from '../../StateContext';
@@ -11,14 +11,24 @@ import checkSvg from '/check.svg'
 import wrongSvg from '/wrong.svg'
 
 const CodeBox = () => {
+  const [ disabled, setDisabled ] = useState(false)
+  const [ count, setCount ] = useState(0)
   const { challengeResponse, requestData, logData, setLogData, passing, setPassing } = useStateContext();
   const textRef = useRef(null)
 
   const [code, setCode] = React.useState(
     `console.log('Welcome!')
-  console.log('write some code here')
-    console.log('write some more code here')`
+console.log('Generate a new challenge to get started')
+console.log('Click the Play button to evaluate -->')`
   );
+
+  useEffect(() => {
+    if (count) {
+      setCode('')
+    } 
+    setCount(1)
+  },[logData])
+
 
   const sendRequest = async () => {
 
@@ -27,8 +37,6 @@ const CodeBox = () => {
     const textareaElement = textRef.current;
     const lines = textareaElement.props.value.split('\n');
     let formattedCode = lines.map(line => line.trimEnd()).join('\n');
-    
-    console.log(requestData.language, challengeResponse.challenge, formattedCode)
     
     try {
       const res = await fetch(url, {
@@ -55,23 +63,17 @@ const CodeBox = () => {
     try {
       const resData = await sendRequest();
       if (resData) {
-        console.log(resData)
-        if (typeof resData.response === 'string') {
-          const codeState = JSON.parse(resData.response).eval
-            ? ['Correct!']
-            : ['Incorrect!']
+        const response = typeof resData.response === 'string' 
+          ? JSON.parse(resData.response)
+          : resData.response
 
-          setPassing(JSON.parse(resData.response).eval)
-          setLogData(logData.concat(codeState, JSON.parse(resData.response).output))
-        } else {
+        const codeState = response.eval
+          ? ['Correct!']
+          : ['Incorrect!']
 
-          const codeState = resData.response.eval
-            ? ['Correct!']
-            : ['Incorrect!']
-
-          setPassing(resData.response.eval)
-          setLogData(logData.concat(codeState, resData.response.output))
-        }
+        setPassing(response.eval)
+        setLogData(prev => [...prev, ...response.output, ...codeState])
+        
       } else {
         console.log('no data')
       }

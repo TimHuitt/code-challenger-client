@@ -70,12 +70,14 @@ const Container = ({ header, body }) => {
           <div className="content-container">
             { Array.isArray(body) ? (
               body.map((line) => {
-                return (
-                  <div className="text-container">
-                    <p>{"input: " + line[0] + "\n  > " + line[1] + "\n"}</p>
-                    <hr />
-                  </div>
-                )
+                if (line != '') {
+                  return (
+                    <div className="text-container">
+                      <p>{"input: " + line[0] + "\n  > " + line[1] + "\n"}</p>
+                      <hr />
+                    </div>
+                  )
+                }
               })
             ) : (
               <div className="text-container">
@@ -86,7 +88,7 @@ const Container = ({ header, body }) => {
         </>
       ) : (
         <>
-          { textHints ? (
+          { textHints && textHints != '' ? (
             textHints.map((line, index) => (
               <div className="hint-container">
                 <div className="hint-header" onClick={ () => toggleVis(index) }>
@@ -103,7 +105,7 @@ const Container = ({ header, body }) => {
           ) : (
             ''
           )}
-          { codeHints ? (
+          { codeHints && codeHints != '' ? (
             codeHints.map((line, index) => (
               <div className="hint-container">
                 <div className="hint-header" onClick={ () => toggleVis(index + textHints.length) }>

@@ -8,18 +8,12 @@ import collapseSvg from '/collapse.svg'
 
 const Collapse = () => {
   const [ disabled, setDisabled ] = useState(false)
-  const { challengeToggle, setChallengeToggle, setPassing, logData, setLogData } = useStateContext()
+  const { setChallengeResponse, challengeToggle, setChallengeToggle, setShowSettings, requestData, setLogData, setPassing } = useStateContext()
   const [ rotation, setRotation ] = useState(180)
-
-  const { requestData } = useStateContext();
-  const { setChallengeResponse } = useStateContext();
-
-  const { setShowSettings } = useStateContext();
 
   const openSettings = () => {
     setShowSettings(true)
   }
-  
   
   const sendRequest = async () => {
     const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/challenges";
@@ -44,9 +38,33 @@ const Collapse = () => {
   };
   
   const getChallenge = async () => {
+    setChallengeResponse({
+      ID: '',
+      name: 'Loading...',
+      // challenge: '',
+      challenge: '',
+      textHints: [''],
+      codeHints: [''],
+      testCases: [
+        ['']
+      ],
+      solution: ''
+    })
+    setPassing(false)
+    setLogData([''])
+    setDisabled(true)
+    setLogData([
+      '',
+      'Your request has been sent', 
+      '',
+      'Please wait while AI generates a new challenge',
+      '',
+      'This may take 1-2 min for complex challenges'
+    ])
+
     try {
       const resData = await sendRequest();
-  
+      
       if (resData) {
         setPassing(false)
         if (typeof resData.response === 'string') {
@@ -60,6 +78,8 @@ const Collapse = () => {
     } catch (err) {
       console.log(err);
     }
+    setDisabled(false)
+    setLogData([''])
   };
 
   const handleClick = () => {
@@ -72,6 +92,8 @@ const Collapse = () => {
       : setRotation(0)
   }, [challengeToggle])
 
+  const nextButton = disabled ? "next-container disabled" : "next-container"
+
   return (
     <div id="Collapse">
       <div className="settings-button" onClick={openSettings} data-tooltip-id="settings" data-tooltip-content="Update Settings">
@@ -82,7 +104,7 @@ const Collapse = () => {
         <img src={collapseSvg} alt="collapse" style={{ transform: `rotate(${rotation}deg)` }} onClick={handleClick} data-tooltip-id="collapse" data-tooltip-content="Toggle Details" />
       </div>
       <div className="vertical-ruler" />
-      <div className="next-container">
+      <div className={nextButton}>
         <button onClick={getChallenge} data-tooltip-id="next" data-tooltip-content="Next Challenge">
           <img src={nextSvg} />
         </button>

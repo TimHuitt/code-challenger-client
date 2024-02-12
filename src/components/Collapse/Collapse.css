@@ -51,7 +51,19 @@
   border-radius: 5px;
   background: var(--dark-bg);
 }
-#Collapse button {
+#Collapse button:hover {
+  color: var(--bg);
+  background-color: var(--light);
+}
+#Collapse button:active {
+  color: var(--lightest);
+  background-color: var(--bg);
+}
+.next-container img {
+  height: 60px;
+  width: 60px;
+}
+.next-container button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,17 +76,9 @@
   padding: 0;
   cursor: pointer;
 }
-#Collapse button:hover {
-  color: var(--bg);
-  background-color: var(--light);
-}
-#Collapse button:active {
-  color: var(--lightest);
-  background-color: var(--bg);
-}
-.next-container img {
-  height: 60px;
-  width: 60px;
+.disabled button {
+  cursor: wait;
+  opacity: .3;
 }
 .settings-button {
   display: flex;

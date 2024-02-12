@@ -1,20 +1,22 @@
-{
-  "programming_languages": [
-      "Python",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Java",
-      "C++",
-      "C#",
-      "Ruby",
-      "Go",
-      "Rust",
-      "PHP",
-      "TypeScript",
-      "Kotlin",
-      "Swift",
-      "Scala",
-      "Perl"
-  ]
-}
+[
+  "Python",
+  "JavaScript",
+  "Java",
+  "C#",
+  "C++",
+  "Ruby",
+  "Go",
+  "Swift",
+  "Kotlin",
+  "TypeScript",
+  "PHP",
+  "Rust",
+  "Scala",
+  "Perl",
+  "Haskell",
+  "Lua",
+  "Dart",
+  "Elixir",
+  "Clojure",
+  "F#"
+]
