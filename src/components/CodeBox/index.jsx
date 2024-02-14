@@ -31,9 +31,9 @@ console.log('Click the Play button to evaluate your code -->')`
 
 
   const sendRequest = async () => {
-    // https://code-challenger-server.fly.dev/
-    // https://code-challenger-server-9e5cc705b6e9.herokuapp.com/
-    const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/console";
+    
+    // const url = "https://code-challenger-server-9e5cc705b6e9.herokuapp.com/console";
+    const url = "http://localhost:4000/console";
 
     const textareaElement = textRef.current;
     const lines = textareaElement.props.value.split('\n');
@@ -45,7 +45,12 @@ console.log('Click the Play button to evaluate your code -->')`
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({content: `language: ${requestData.language}, Challenge: ${challengeResponse.challenge}, Code: ${formattedCode}`}),
+        body: JSON.stringify({ content: `
+          language: ${requestData.language}, 
+          challenge: ${challengeResponse.challenge}, 
+          code: ${formattedCode}, 
+          testCases: ${challengeResponse.testCases}
+        `}),
       });
 
       if (res.ok) {
