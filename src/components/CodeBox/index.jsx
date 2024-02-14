@@ -73,7 +73,7 @@ console.log('Click the Play button to evaluate your code -->')`
       return;
     }
 
-    setLogData(['Analyzing Code....', 'This feature is in development and may produce inaccurate results'])
+    setLogData(['Analyzing Code....'])
 
 
     try {
@@ -90,7 +90,7 @@ console.log('Click the Play button to evaluate your code -->')`
           : (['Incorrect!'])
 
         setPassing(isPassing)
-        setLogData(prev => [...prev, ...response.output, ...codeState])
+        setLogData(prev => [['Results:'], ...response.output, ...codeState])
         
       } else {
         console.log('no data')
