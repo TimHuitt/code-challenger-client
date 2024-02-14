@@ -78,11 +78,13 @@ console.log('Click the Play button to evaluate your code -->')`
           ? JSON.parse(resData.response)
           : resData.response
 
-        const codeState = response.eval
-          ? ['Correct!']
-          : ['Incorrect!']
+        const isPassing = response.eval === true || response.eval === 'true' ? true : false
 
-        setPassing(response.eval)
+        const codeState = isPassing
+          ? (['Correct!'])
+          : (['Incorrect!'])
+
+        setPassing(isPassing)
         setLogData(prev => [...prev, ...response.output, ...codeState])
         
       } else {
