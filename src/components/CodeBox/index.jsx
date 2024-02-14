@@ -68,7 +68,7 @@ console.log('Click the Play button to evaluate your code -->')`
       return;
     }
 
-    setLogData(['Analyzing Code....'])
+    setLogData(['Analyzing Code....', 'This feature is in development and may produce inaccurate results'])
 
 
     try {
