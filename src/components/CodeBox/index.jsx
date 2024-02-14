@@ -49,7 +49,6 @@ console.log('Click the Play button to evaluate your code -->')`
           language: ${requestData.language}, 
           challenge: ${challengeResponse.challenge}, 
           code: ${formattedCode}, 
-          testCases: ${challengeResponse.testCases}
         `}),
       });
 
