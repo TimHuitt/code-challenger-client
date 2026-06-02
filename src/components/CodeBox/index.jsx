@@ -78,11 +78,9 @@ console.log('Click the Play button to evaluate your code -->')`
     try {
       const resData = await sendRequest();
       if (resData) {
-        const response = typeof resData.response === 'string' 
-          ? JSON.parse(resData.response)
-          : resData.response
+        const response = resData.response
 
-        const isPassing = response.eval === true || response.eval === 'true' ? true : false
+        const isPassing = !!response.eval
 
         const codeState = isPassing
           ? (['Correct!'])

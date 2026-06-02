@@ -76,11 +76,7 @@ const Collapse = () => {
       
       if (resData) {
         setPassing(false)
-        if (typeof resData.response === 'string') {
-          setChallengeResponse(JSON.parse(resData.response))
-        } else {
-          setChallengeResponse(resData.response)
-        }
+        setChallengeResponse(resData.response)
       } else {
         setLogData(['There was a communication error.', 'Please try again...'])
         console.error('No data. Try again...')
