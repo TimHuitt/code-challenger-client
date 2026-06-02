@@ -46,9 +46,10 @@ console.log('Click the Play button to evaluate your code -->')`
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ content: `
-          language: ${requestData.language}, 
-          challenge: ${challengeResponse.challenge}, 
-          code: ${formattedCode}, 
+          language: ${requestData.language},
+          challenge: ${challengeResponse.challenge},
+          testCases: ${JSON.stringify(challengeResponse.testCases)},
+          code: ${formattedCode},
         `}),
       });
 
