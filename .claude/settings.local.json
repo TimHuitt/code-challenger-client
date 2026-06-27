@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl -- ls /home/tim/projects/code-challenger-server/controllers/)"
+    ]
+  }
+}
