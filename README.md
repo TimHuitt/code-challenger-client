@@ -1,30 +1,22 @@
 # CodeChallenger
 
-Welcome to CodeChallenger, the ultimate platform where coding challenges meet artificial intelligence. Dive into a unique coding practice environment where you can customize challenges to fit your learning path and have your solutions evaluated by advanced AI.
+A coding challenge platform powered by the Anthropic Claude API. 
+Challenges are generated and evaluated entirely by AI.
 
-## Overview
+**Live demo:** https://code-challenger-app.netlify.app/
 
-CodeChallenger is an AI-Generated coding challenge platform designed to enhance your programming skills through a variety of customized challenges. Each challenge is accompanied by detailed specifications, test cases, hints, and full solutions to guide you through your learning journey.
-
-With CodeChallenger, users can:
-- Receive AI-generated code challenges tailored to their skill level.
-- Customize the difficulty and topics of the challenges to meet their specific learning goals.
-- Submit solutions directly within the platform and receive instant feedback.
-- Explore detailed explanations and hints to improve their understanding and approach to problems.
 
 ## Features
 
-- **AI-Generated Challenges:** Get access to a vast array of challenges created by AI, ensuring you always have fresh and relevant problems to solve.
-- **Customizable Challenges:** Tailor the difficulty and scope of challenges to match your personal learning objectives.
-- **Instant Feedback:** Submit your solutions and receive immediate AI-evaluated feedback with actionable insights.
-- **Comprehensive Hints and Solutions:** Struggling with a problem? Access step-by-step hints and detailed solutions to understand complex concepts and improve your coding skills.
-- **User-Friendly Interface:** Engage with a clean, intuitive interface that makes learning to code enjoyable and effective.
+- **Configurable challenges** - choose language, difficulty (beginner → expert), and expected solution length
+- **Custom requests** - describe what you want, e.g. *"something with a matrix"* or *"a graph traversal problem"*, and the AI builds it
+- **In-browser editor** - write your solution with syntax highlighting, no setup required
+- **AI-evaluated submissions** - simulated console output and pass/fail evaluation against the challenge criteria
+- **Hints and solutions** - progressive hints and a model solution for every challenge
 
-![CodeChallenger UI](https://i.imgur.com/L8RUr0U.png)
+## Tech stack
 
-## Getting Started
-
-1. **Choose a Challenge:** Browse through the list of challenges and select one that suits your interest or learning goal.
-2. **Read Challenge Details:** Understand the problem statement, check the test cases, and start planning your solution.
-3. **Code and Submit:** Enter your solution in the integrated code editor and submit it for evaluation.
-4. **Review Feedback:** Analyze the feedback provided by AI and learn from the hints and solutions if needed.
+**Frontend:** React, Vite, React Router, PrismJS  [repo](https://github.com/TimHuitt/code-challenger-client)
+**Backend:** Node.js, Express - [repo](https://github.com/TimHuitt/code-challenger-server)
+**AI:** Anthropic Claude API  
+**Hosting:** Netlify (frontend + serverless functions)
