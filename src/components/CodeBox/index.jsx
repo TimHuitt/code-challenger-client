@@ -57,10 +57,11 @@ console.log('Click the Play button to evaluate your code -->')`
         const jsonData = await res.json();
         return jsonData;
       } else {
-        throw new Error("Invalid request!");
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.err || "Invalid request!");
       }
     } catch (err) {
-      console.log(err.message);
+      setLogData([err.message]);
     }
   };
 
